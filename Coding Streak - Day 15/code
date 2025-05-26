@@ -1,0 +1,17 @@
+class Solution:
+    def palindromePairs(self, words: List[str]) -> List[List[int]]:
+        r=[]
+        d={word:i for i, word in enumerate(words) }
+        for i,word in enumerate(words):
+            for j in range(len(word)+1):
+                p=word[:j]
+                s=word[j:]
+                if p==p[::-1]:
+                    revs=s[::-1]
+                    if revs in d and i!=d[revs]:
+                        r.append([d[revs],i])
+                if j!=len(word) and s==s[::-1]:
+                    revp=p[::-1]
+                    if revp in d and i!=d[revp]:
+                        r.append([i,d[revp]])
+        return r
