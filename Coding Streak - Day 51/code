@@ -1,1 +1,11 @@
-m
+class Solution(object):
+    def buildArray(self, target, n):
+        r=[]
+        i=1
+        for val in target:
+            while i<val:
+                r+=["Push","Pop"]
+                i+=1
+            r.append("Push")
+            i+=1
+        return r
