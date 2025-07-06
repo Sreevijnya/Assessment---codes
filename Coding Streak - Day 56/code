@@ -1,0 +1,10 @@
+class Solution:
+    def wordBreak(self, s: str, w: List[str]) -> List[str]:
+        def find(i):
+            r=[s[i:]] if s[i:] in w else []
+            for j in range(i+1, len(s)):
+                if s[i:j] in w:
+                    for t in find(j):
+                        r.append(s[i:j]+' '+t)
+            return r
+        return find(0)
