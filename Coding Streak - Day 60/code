@@ -1,1 +1,8 @@
-m
+class Solution:
+    def countPrimes(self, n: int) -> int:
+        if n<3:
+            return 0
+        p=[0,0]+[1]*(n-2)
+        for i in range(2,int(n**0.5)+1):
+            p[i*i:n:i]=[0]*len(p[i*i:n:i])
+        return sum(p)
