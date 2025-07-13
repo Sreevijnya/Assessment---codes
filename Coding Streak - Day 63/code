@@ -1,0 +1,7 @@
+class Solution(object):
+    def maxProfit(self, prices):
+        b,p=prices[0],0
+        for i in prices:
+            b=min(b,i)
+            p=max(p,i-b)
+        return p
