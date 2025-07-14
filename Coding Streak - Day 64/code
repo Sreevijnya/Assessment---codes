@@ -1,1 +1,10 @@
-m
+class Solution(object):
+    def subsetsWithDup(self, nums):
+        nums.sort()
+        res=[[]]
+        last=0
+        for i in range(len(nums)):
+            s=last if i and nums[i]==nums[i-1] else 0
+            last=len(res)
+            res+=[r+[nums[i]] for r in res[s:]] 
+        return res
