@@ -1,1 +1,8 @@
-m
+class Solution(object):
+    def majorityElement(self, nums):
+        s,c=0,0
+        for i in nums:
+            c+=1 if i==s else -1
+            if c<=0: s,c=i,1
+        return s
+        
